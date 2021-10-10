@@ -25,3 +25,27 @@ Route::any('adminer', '\Aranyasen\LaravelAdminer\AdminerAutologinController@inde
 
 
 require __DIR__.'/auth.php';
+
+
+Route::prefix('/bootstrap')->group(function(){
+    Route::get('/', function() {
+        return view('bootstrap.admin.dashboard');
+    })->name('bootstrap.admin.dashboard');
+    Route::get('table', function() {
+        return view('bootstrap.admin.table');
+    })->name('bootstrap.admin.table');
+    Route::get('form', function() {
+        return view('bootstrap.admin.form');
+    })->name('bootstrap.admin.form');
+
+    Route::get('blog', function() {
+        return view('bootstrap.blog.layout_sb');
+    })->name('bootstrap.blog.main');
+    Route::get('blog/post', function() {
+        return view('bootstrap.blog.post');
+    })->name('bootstrap.blog.post');
+    Route::get('blog/category', function() {
+        return view('bootstrap.blog.category');
+    })->name('bootstrap.blog.category');
+});
+
