@@ -39,7 +39,7 @@ Route::prefix('/bootstrap')->group(function(){
     })->name('bootstrap.admin.form');
 
     Route::get('blog', function() {
-        return view('bootstrap.blog.layout_sb');
+        return view('bootstrap.blog.main');
     })->name('bootstrap.blog.main');
     Route::get('blog/post', function() {
         return view('bootstrap.blog.post');
