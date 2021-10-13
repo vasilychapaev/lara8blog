@@ -3,42 +3,23 @@
 @section('content')
     <div class="col-lg-8">
         <!-- Featured blog post-->
+
+        @foreach ($posts as $post)
         <div class="card mb-4">
-            <a href="#!"><img class="card-img-top" src="https://dummyimage.com/850x350/dee2e6/6c757d.jpg" alt="..." /></a>
+            <a href="#!"><img class="card-img-top" src="{{ $post->thumbnail }}" alt="..." /></a>
             <div class="card-body">
-                <div class="small text-muted">January 1, 2021</div>
-                <h2 class="card-title">Featured Post Title</h2>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-                <a class="btn btn-primary" href="#!">Read more →</a>
+                <div class="small text-muted">{{ $post->getPostDate() }}</div>
+                <h2 class="card-title">{{ $post->title }}</h2>
+                <p>
+                    <a href="{{ route('category', $post->category->slug) }}">
+                        <span class="badge bg-secondary">{{ $post->category->title }}</span>
+                    </a>
+                </p>
+                <p class="card-text">{{ $post->description }}</p>
+                <a class="btn btn-primary" href="{{ route('post', $post->slug) }}">Read more →</a>
             </div>
         </div>
-        <div class="card mb-4">
-            <a href="#!"><img class="card-img-top" src="https://dummyimage.com/850x350/dee2e6/6c757d.jpg" alt="..." /></a>
-            <div class="card-body">
-                <div class="small text-muted">January 1, 2021</div>
-                <h2 class="card-title">Featured Post Title</h2>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-                <a class="btn btn-primary" href="#!">Read more →</a>
-            </div>
-        </div>
-        <div class="card mb-4">
-            <a href="#!"><img class="card-img-top" src="https://dummyimage.com/850x350/dee2e6/6c757d.jpg" alt="..." /></a>
-            <div class="card-body">
-                <div class="small text-muted">January 1, 2021</div>
-                <h2 class="card-title">Featured Post Title</h2>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-                <a class="btn btn-primary" href="#!">Read more →</a>
-            </div>
-        </div>
-        <div class="card mb-4">
-            <a href="#!"><img class="card-img-top" src="https://dummyimage.com/850x350/dee2e6/6c757d.jpg" alt="..." /></a>
-            <div class="card-body">
-                <div class="small text-muted">January 1, 2021</div>
-                <h2 class="card-title">Featured Post Title</h2>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-                <a class="btn btn-primary" href="#!">Read more →</a>
-            </div>
-        </div>
+        @endforeach
 
         <!-- Pagination-->
         <nav aria-label="Pagination">

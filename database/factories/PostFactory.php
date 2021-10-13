@@ -28,7 +28,7 @@ class PostFactory extends Factory
             'description' => $this->faker->paragraph,
             'content' => $this->faker->paragraphs(5, true),
             'category_id' => $this->faker->numberBetween(1,5),
-            'thumbnail' => $this->faker->imageUrl(640, 480, 'public/images/posts'),
+            'thumbnail' => $this->faker->imageUrl(640, 240),
             'views' => $this->faker->randomDigit(),
         ];
     }

@@ -49,3 +49,14 @@ Route::prefix('/bootstrap')->group(function(){
     })->name('bootstrap.blog.category');
 });
 
+
+Route::get('/', 'App\Http\Controllers\BlogController@index')->name('home');
+Route::get('/post/{slug}/', 'App\Http\Controllers\BlogController@show')->name('post');
+Route::get('/category/{slug}/', 'App\Http\Controllers\CategoryController@show')->name('category');
+Route::get('/tag/{slug}/', 'App\Http\Controllers\TagController@show')->name('tag');
+Route::get('/search/{q}/', 'App\Http\Controllers\SearchController@search')->name('search');
+Route::get('/contact/', 'App\Http\Controllers\ContactControlller@index')->name('contact');
+
+
+
+
