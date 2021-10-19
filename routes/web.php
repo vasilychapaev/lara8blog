@@ -24,39 +24,45 @@ Route::get('/dashboard', function () {
 Route::any('adminer', '\Aranyasen\LaravelAdminer\AdminerAutologinController@index');
 
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
 
 
-Route::prefix('/bootstrap')->group(function(){
-    Route::get('/', function() {
+Route::prefix('/bootstrap')->group(function () {
+    Route::get('/', function () {
         return view('bootstrap.admin.dashboard');
     })->name('bootstrap.admin.dashboard');
-    Route::get('table', function() {
+    Route::get('table', function () {
         return view('bootstrap.admin.table');
     })->name('bootstrap.admin.table');
-    Route::get('form', function() {
+    Route::get('form', function () {
         return view('bootstrap.admin.form');
     })->name('bootstrap.admin.form');
 
-    Route::get('blog', function() {
+    Route::get('blog', function () {
         return view('bootstrap.blog.main');
     })->name('bootstrap.blog.main');
-    Route::get('blog/post', function() {
+    Route::get('blog/post', function () {
         return view('bootstrap.blog.post');
     })->name('bootstrap.blog.post');
-    Route::get('blog/category', function() {
+    Route::get('blog/category', function () {
         return view('bootstrap.blog.category');
     })->name('bootstrap.blog.category');
 });
 
 
-Route::get('/', 'App\Http\Controllers\BlogController@index')->name('home');
-Route::get('/post/{slug}/', 'App\Http\Controllers\BlogController@show')->name('post');
-Route::get('/category/{slug}/', 'App\Http\Controllers\CategoryController@show')->name('category');
-Route::get('/tag/{slug}/', 'App\Http\Controllers\TagController@show')->name('tag');
-Route::get('/search/{q}/', 'App\Http\Controllers\SearchController@search')->name('search');
-Route::get('/contact/', 'App\Http\Controllers\ContactControlller@index')->name('contact');
+//Route::get('/', 'App\Http\Controllers\BlogController@index')->name('home');
+//Route::get('/post/{slug}/', 'App\Http\Controllers\BlogController@show')->name('post');
+//Route::get('/category/{slug}/', 'App\Http\Controllers\CategoryController@show')->name('category');
+//Route::get('/tag/{slug}/', 'App\Http\Controllers\TagController@show')->name('tag');
+//Route::get('/search/{q}/', 'App\Http\Controllers\SearchController@search')->name('search');
+//Route::get('/contact/', 'App\Http\Controllers\ContactControlller@index')->name('contact');
 
-
-
+Route::prefix('/lw/admin')->name('lw.admin.')->group(function () {
+    Route::get('/categories', \App\Http\Livewire\Admin\Categories::class)->name('categories.list');
+    Route::get('/categories/add/', \App\Http\Livewire\Admin\Categories::class)->name('category.add');
+    Route::get('/tags', \App\Http\Livewire\Admin\Tags::class)->name('tags.list');
+    Route::get('/tags/add/', \App\Http\Livewire\Admin\Tags::class)->name('tag.add');
+    Route::get('/posts', \App\Http\Livewire\Admin\Posts::class)->name('posts.list');
+    Route::get('/posts/add/', \App\Http\Livewire\Admin\Posts::class)->name('post.add');
+});
 
