@@ -50,19 +50,28 @@ Route::prefix('/bootstrap')->group(function () {
 });
 
 
-//Route::get('/', 'App\Http\Controllers\BlogController@index')->name('home');
+Route::get('/', 'App\Http\Controllers\BlogController@index')->name('home');
 //Route::get('/post/{slug}/', 'App\Http\Controllers\BlogController@show')->name('post');
-//Route::get('/category/{slug}/', 'App\Http\Controllers\CategoryController@show')->name('category');
+Route::get('/category/{slug}/', 'App\Http\Controllers\CategoryController@show')->name('category');
 //Route::get('/tag/{slug}/', 'App\Http\Controllers\TagController@show')->name('tag');
 //Route::get('/search/{q}/', 'App\Http\Controllers\SearchController@search')->name('search');
-//Route::get('/contact/', 'App\Http\Controllers\ContactControlller@index')->name('contact');
+Route::get('/contact/', 'App\Http\Controllers\ContactControlller@index')->name('contact');
 
-Route::prefix('/lw/admin')->name('lw.admin.')->group(function () {
-    Route::get('/categories', \App\Http\Livewire\Admin\Categories::class)->name('categories.list');
-    Route::get('/categories/add/', \App\Http\Livewire\Admin\Categories::class)->name('category.add');
-    Route::get('/tags', \App\Http\Livewire\Admin\Tags::class)->name('tags.list');
-    Route::get('/tags/add/', \App\Http\Livewire\Admin\Tags::class)->name('tag.add');
-    Route::get('/posts', \App\Http\Livewire\Admin\Posts::class)->name('posts.list');
-    Route::get('/posts/add/', \App\Http\Livewire\Admin\Posts::class)->name('post.add');
+Route::prefix('/lw')->name('lw.')->group(function () {
+
+    Route::prefix('/blog')->name('blog.')->group(function() {
+        Route::get('/', \App\Http\Livewire\Blog\Categories::class)->name('category.main');
+        Route::get('/category/{slug}/', \App\Http\Livewire\Blog\CategoryShow::class)->name('category.show');
+        Route::get('/post/{slug}/', \App\Http\Livewire\Blog\PostShow::class)->name('post.show');
+    });
+
+    Route::prefix('/admin')->name('admin.')->group(function () {
+        Route::get('/categories', \App\Http\Livewire\Admin\Categories::class)->name('categories.list');
+        Route::get('/categories/add/', \App\Http\Livewire\Admin\Categories::class)->name('category.add');
+        Route::get('/tags', \App\Http\Livewire\Admin\Tags::class)->name('tags.list');
+        Route::get('/tags/add/', \App\Http\Livewire\Admin\Tags::class)->name('tag.add');
+        Route::get('/posts', \App\Http\Livewire\Admin\Posts::class)->name('posts.list');
+        Route::get('/posts/add/', \App\Http\Livewire\Admin\Posts::class)->name('post.add');
+    });
 });
 

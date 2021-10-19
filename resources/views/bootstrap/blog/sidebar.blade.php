@@ -17,7 +17,7 @@
                 <div class="col-sm-6">
                     <ul class="list-unstyled mb-0">
                         @foreach ($categories_sidebar as $category)
-                            <li><a href="{{ route('category', $category->slug) }}">{{ $category->title }}</a></li>
+                            <li><a href="{{ route('lw.blog.category.show', $category->slug) }}">{{ $category->title }}</a></li>
                         @endforeach
                     </ul>
                 </div>

@@ -130,19 +130,19 @@
                 </h6>
                 <ul class="nav flex-column mb-2">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('bootstrap.blog.main') }}">
+                        <a class="nav-link" href="{{ route('lw.blog.category.main') }}">
                             <span data-feather="file-text"></span>
                             Main
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('bootstrap.blog.post') }}">
+                        <a class="nav-link" href="{{ route('lw.blog.category.main') }}">
                             <span data-feather="file-text"></span>
                             Post
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('bootstrap.blog.category') }}">
+                        <a class="nav-link" href="{{ route('lw.blog.category.main') }}">
                             <span data-feather="file-text"></span>
                             Category
                         </a>
