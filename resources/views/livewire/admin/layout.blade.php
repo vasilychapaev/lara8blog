@@ -169,6 +169,14 @@
                 </div>--}}
             </div>
 
+
+            @if (session()->has('message'))
+                <div class="alert alert-success">
+                    {{ session('message') }}
+                </div>
+            @endif
+
+
 {{--            @yield('content')--}}
             {{ $slot }}
 
@@ -180,6 +188,8 @@
 <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
 <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/feather-icons"></script>
+<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
 <script src="{{ asset('assets/js/dashboard.js') }}"></script>
 @livewireScripts
 </body>

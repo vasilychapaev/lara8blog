@@ -73,6 +73,7 @@ Route::prefix('/lw')->name('lw.')->group(function () {
         Route::get('/', \App\Http\Livewire\Admin\Dashboard::class)->name('dashboard');
         Route::get('/categories', \App\Http\Livewire\Admin\Categories::class)->name('categories.list');
         Route::get('/categories/add/', \App\Http\Livewire\Admin\CategoryAdd::class)->name('category.add');
+        Route::get('/categories/edit/{id}/', \App\Http\Livewire\Admin\CategoryEdit::class)->name('category.edit');
         Route::get('/tags', \App\Http\Livewire\Admin\Tags::class)->name('tags.list');
         Route::get('/tags/add/', \App\Http\Livewire\Admin\Tags::class)->name('tag.add');
         Route::get('/posts', \App\Http\Livewire\Admin\Posts::class)->name('posts.list');
