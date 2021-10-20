@@ -51,23 +51,28 @@ Route::prefix('/bootstrap')->group(function () {
 
 
 Route::get('/', 'App\Http\Controllers\BlogController@index')->name('home');
-//Route::get('/post/{slug}/', 'App\Http\Controllers\BlogController@show')->name('post');
+Route::get('/post/{slug}/', 'App\Http\Controllers\BlogController@show')->name('post');
 Route::get('/category/{slug}/', 'App\Http\Controllers\CategoryController@show')->name('category');
-//Route::get('/tag/{slug}/', 'App\Http\Controllers\TagController@show')->name('tag');
-//Route::get('/search/{q}/', 'App\Http\Controllers\SearchController@search')->name('search');
+Route::get('/tag/{slug}/', 'App\Http\Controllers\TagController@show')->name('tag');
+Route::get('/search/{q}/', 'App\Http\Controllers\SearchController@search')->name('search');
 Route::get('/contact/', 'App\Http\Controllers\ContactControlller@index')->name('contact');
 
+
+
+// livewire
 Route::prefix('/lw')->name('lw.')->group(function () {
 
     Route::prefix('/blog')->name('blog.')->group(function() {
         Route::get('/', \App\Http\Livewire\Blog\Categories::class)->name('category.main');
         Route::get('/category/{slug}/', \App\Http\Livewire\Blog\CategoryShow::class)->name('category.show');
         Route::get('/post/{slug}/', \App\Http\Livewire\Blog\PostShow::class)->name('post.show');
+        Route::get('/contact-form/', \App\Http\Livewire\Blog\ContactForm::class)->name('contact-form');
     });
 
     Route::prefix('/admin')->name('admin.')->group(function () {
+        Route::get('/', \App\Http\Livewire\Admin\Dashboard::class)->name('dashboard');
         Route::get('/categories', \App\Http\Livewire\Admin\Categories::class)->name('categories.list');
-        Route::get('/categories/add/', \App\Http\Livewire\Admin\Categories::class)->name('category.add');
+        Route::get('/categories/add/', \App\Http\Livewire\Admin\CategoryAdd::class)->name('category.add');
         Route::get('/tags', \App\Http\Livewire\Admin\Tags::class)->name('tags.list');
         Route::get('/tags/add/', \App\Http\Livewire\Admin\Tags::class)->name('tag.add');
         Route::get('/posts', \App\Http\Livewire\Admin\Posts::class)->name('posts.list');

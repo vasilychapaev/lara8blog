@@ -30,7 +30,7 @@
                 <li class="nav-item"><a class="nav-link" href="{{ route('home') }}">Home</a></li>
 {{--                <li class="nav-item"><a class="nav-link" href="#!">About</a></li>--}}
 {{--                <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Blog</a></li>--}}
-                <li class="nav-item"><a class="nav-link" href="{{ route('contact') }}">Contact</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('lw.blog.contact-form') }}">Contact</a></li>
             </ul>
         </div>
     </div>
@@ -41,7 +41,7 @@
         <div class="text-center my-5">
             <h1 class="fw-bolder">{{ env('APP_NAME') }}</h1>
             <p class="lead mb-0">
-                @yield('category_title')
+                @yield('subtitle')
             </p>
         </div>
     </div>
