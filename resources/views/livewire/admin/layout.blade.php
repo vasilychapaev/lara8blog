@@ -8,6 +8,11 @@
     <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
     <link rel="icon" href="{{ asset('assets/images/favicons/favicon.ico') }}">
     <link href="{{ asset('assets/css/dashboard.css') }}" rel="stylesheet">
+
+    <style>
+        [x-cloak] { display: none; }
+    </style>
+
     @livewireStyles
 </head>
 <body>
@@ -190,6 +195,9 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/feather-icons"></script>
 <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.2/dist/alpine.min.js" defer></script>
+
 <script src="{{ asset('assets/js/dashboard.js') }}"></script>
 @livewireScripts
 </body>
