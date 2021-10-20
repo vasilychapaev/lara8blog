@@ -1,4 +1,4 @@
-@section('category_title', $category->title)
+@section('subtitle', $category->title)
 
 <div class="col-lg-8">
     <!-- Featured blog post-->
