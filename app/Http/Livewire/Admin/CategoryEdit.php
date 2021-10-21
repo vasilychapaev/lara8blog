@@ -14,11 +14,26 @@ class CategoryEdit extends Component
     public function mount($id)
     {
         $this->category = Category::find($id);
-//        $this->title = $this->ca
+        $this->title = $this->category->title;
+        $this->slug = $this->category->slug;
     }
 
     public function render()
     {
         return view('livewire.admin.category-edit');
+    }
+
+    public function submit()
+    {
+        $this->category->fill([
+            'title' => $this->title,
+        ]);
+        $this->category->save();
+
+//        session()->flash('message', 'category updated');
+        // ❓ работает 1 раз
+
+        dd('444');
+        return redirect()->route('lw.admin.categories.list');
     }
 }
